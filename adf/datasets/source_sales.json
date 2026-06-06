@@ -1,0 +1,90 @@
+{
+    "name": "source_sales",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorage1",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "filename": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@dataset().filename",
+                    "type": "Expression"
+                },
+                "folderPath": "input",
+                "fileSystem": "raw"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": false,
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "name": "Brand",
+                "type": "String"
+            },
+            {
+                "name": "Model",
+                "type": "String"
+            },
+            {
+                "name": "AccelSec",
+                "type": "String"
+            },
+            {
+                "name": "TopSpeed_KmH",
+                "type": "String"
+            },
+            {
+                "name": "Range_Km",
+                "type": "String"
+            },
+            {
+                "name": "Efficiency_WhKm",
+                "type": "String"
+            },
+            {
+                "name": "FastCharge_KmH",
+                "type": "String"
+            },
+            {
+                "name": "RapidCharge",
+                "type": "String"
+            },
+            {
+                "name": "PowerTrain",
+                "type": "String"
+            },
+            {
+                "name": "PlugType",
+                "type": "String"
+            },
+            {
+                "name": "BodyStyle",
+                "type": "String"
+            },
+            {
+                "name": "Segment",
+                "type": "String"
+            },
+            {
+                "name": "Seats",
+                "type": "String"
+            },
+            {
+                "name": "PriceEuro",
+                "type": "String"
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
